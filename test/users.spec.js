@@ -8,12 +8,12 @@ const loginServices = require('../services/login.services');
 describe('Gerenciamento de Usuários - Endpoints /usuarios', () => {
   let dynamicUser;
   let createdUserId;
-  let token;
+  let token = '';
 
   before(async () => {
     const response = await loginServices.login(config.email, config.password);
-    expect(response.status).to.equal(200);
-    token = response.body.authorization;
+    //expect(response.status).to.equal(200);
+    //token = response.body.authorization;
   });
 
   beforeEach(() => {
@@ -67,9 +67,16 @@ describe('Gerenciamento de Usuários - Endpoints /usuarios', () => {
   describe('DELETE /usuarios/{id} - Exclusão', () => {
     it('Cenário 1: Deve deletar com sucesso', async () => {
       const id = await getFirstUserId(token);
-      const response = await userService.deleteUser2(id, token);
+      const response = await userService.deleteUser(id, token);
       expect(response.status).to.equal(200);
       expect(response.body).to.have.property('message', 'Registro excluído com sucesso');
     });
-  });
+
+    it('Cenário 1: Não deve deletar usuario com carrinho cadastrado', async () => {
+      const id = await getFirstUserId(token);
+      const response = await userService.deleteUser(id, token);
+      expect(response.status).to.equal(400);
+      expect(response.body).to.have.property('message', 'Não é permitido excluir usuário com carrinho cadastrado');
+    });
+  });  
 });

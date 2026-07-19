@@ -10,22 +10,23 @@ jobs:
   api-tests:
     runs-on: ubuntu-latest
     permissions:
-      contents: write # Necessário para a action publicar no GitHub Pages
+      contents: write # Necessário para o Deploy no GitHub Pages
     steps:
       - name: Checkout do Código
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Configurar Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with: 
-          node-version: 18
+          node-version: 20
 
       - name: Instalar Dependências
         run: npm ci
 
       - name: Executar Testes
+        # O reporter-options garante que a pasta de resultados seja criada exatamente onde a Action espera
         run: npm run test:allure
-        continue-on-error: true # Permite gerar o relatório mesmo se houver falhas nos testes
+        continue-on-error: true
 
       - name: Gerar Relatório Allure
         uses: simple-elf/allure-report-action@master

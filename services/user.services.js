@@ -7,36 +7,34 @@ const baseUrl = config.baseUrl;
 const userService = {
 
   listUsers: async (token) => {
-    return await request(baseUrl).get("/usuarios").set(getAuthHeader(token));
+    const response = await request(baseUrl).get("/usuarios").set(getAuthHeader(token));
+    //console.log('Response from listUsers:', response.body);
+    return response;
   },
 
   createUser: async (user, token) => {
-    return await request(baseUrl).post("/usuarios").set(getAuthHeader(token)).send(user);
+    const response = await request(baseUrl).post("/usuarios").set(getAuthHeader(token)).send(user);
+    //console.log('Response from createUser:', response.body);
+    return response;
   },
 
   getUserById: async (id, token) => {
-    return await request(baseUrl).get(`/usuarios/${id}`).set(getAuthHeader(token));
+    const response = await request(baseUrl).get(`/usuarios/${id}`).set(getAuthHeader(token));
+    //console.log('Response from getUserById:', response.body);
+    return response;
   },
 
   updateUser: async (id, user, token) => {
-    return await request(baseUrl).put(`/usuarios/${id}`).set(getAuthHeader(token)).send(user);
+    const response = await request(baseUrl).put(`/usuarios/${id}`).set(getAuthHeader(token)).send(user);
+    //console.log('Response from updateUser:', response.body);
+    return response;
   },
 
   deleteUser: async (id, token) => {
-    return await request(baseUrl).delete(`/usuarios/${id}`).set(getAuthHeader(token));
+    const response = await request(baseUrl).delete(`/usuarios/${id}`).set(getAuthHeader(token));
+    //console.log('Response from deleteUser:', response.body);
+    return response;
   },
-
-  deleteUser2: async (id, token) => {
-    // Vamos garantir que se o token for undefined, a gente saiba o porquê
-    if (!token) {
-      throw new Error(`O token enviado para deleteUser(${id}) está vazio!`);
-    }
-
-    return await request(baseUrl)
-      .delete(`/usuarios/${id}`)
-      .set('Authorization', token) // Injeção direta e simples
-      .set('Content-Type', 'application/json');
-  }
 
 };
 

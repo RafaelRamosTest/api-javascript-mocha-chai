@@ -6,7 +6,7 @@
   "scripts": {
     "test": "mocha test/**/*.spec.js --timeout 10000 --exit",
     "test:report": "mocha test/**/*.spec.js --reporter mochawesome --reporter-options reportDir=mochawesome-report,reportFilename=index,html=true,json=true --timeout 10000 --exit",
-    "test:allure": "mocha --reporter allure-mocha",
+    "test:allure": "mocha \"test/**/*.spec.js\" --reporter allure-mocha --reporter-options resultsDir=allure-results",
     "allure:generate": "npx allure generate allure-results --clean -o allure-report"
   },
   "keywords": [
