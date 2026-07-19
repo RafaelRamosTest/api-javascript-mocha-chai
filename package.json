@@ -6,8 +6,8 @@
   "scripts": {
     "test": "mocha test/**/*.spec.js --timeout 10000 --exit",
     "test:report": "mocha test/**/*.spec.js --reporter mochawesome --reporter-options reportDir=mochawesome-report,reportFilename=index,html=true,json=true --timeout 10000 --exit",
-    "test:allure": "mocha \"test/**/*.spec.js\" --reporter allure-mocha --reporter-options resultsDir=allure-results || true",
-    "ci:test": "start-server-and-test 'npx serverest start --port 3000' http://localhost:3000 'npm run test:allure'"
+    "test:allure": "mocha \"test/**/*.spec.js\" --reporter spec --reporter-options resultsDir=allure-results || true",
+    "ci:test": "start-server-and-test 'npx serverest start --port 3000 > serverest.log 2>&1' http://localhost:3000 'npm run test:allure'"
   },
   "keywords": [
     "mocha",
