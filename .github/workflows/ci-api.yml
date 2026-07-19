@@ -10,7 +10,7 @@ jobs:
   api-tests:
     runs-on: ubuntu-latest
     permissions:
-      contents: write # Necessário para o Deploy no GitHub Pages
+      contents: write 
     steps:
       - name: Checkout do Código
         uses: actions/checkout@v4
@@ -23,10 +23,16 @@ jobs:
       - name: Instalar Dependências
         run: npm ci
 
+      - name: Iniciar ServeRest em background
+        # Usamos nohup e & para rodar o servidor em segundo plano e continuar o pipeline
+        run: nohup npx serverest start --port 3000 > serverest.log 2>&1 &
+
+      - name: Aguardar servidor subir
+        run: sleep 5 # Pequena pausa para garantir que o servidor iniciou
+
       - name: Executar Testes
-        # O reporter-options garante que a pasta de resultados seja criada exatamente onde a Action espera
         run: npm run test:allure
-        continue-on-error: true
+        continue-on-error: true # Permite que o relatório seja gerado mesmo com falhas nos testes
 
       - name: Gerar Relatório Allure
         uses: simple-elf/allure-report-action@master
