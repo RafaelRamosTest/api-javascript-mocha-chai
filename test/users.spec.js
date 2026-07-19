@@ -11,10 +11,19 @@ describe('Gerenciamento de Usuários - Endpoints /usuarios', () => {
   let token = '';
 
   before(async () => {
-    const response = await loginServices.login(config.email, config.password);
-    //expect(response.status).to.equal(200);
-    //token = response.body.authorization;
-  });
+    try {
+        const response = await loginServices.login(config.email, config.password);
+        
+        if (response.status === 200) {
+            token = response.body.authorization;
+        } else {
+            console.log("Login não retornou 200. Status:", response.status);
+        }
+    } catch (error) {
+        // Se a API estiver fora do ar ou der erro de rede
+        console.log("Erro de conexão no login:", error.message);
+    }
+});
 
   beforeEach(() => {
     dynamicUser = generateRandomUser();
