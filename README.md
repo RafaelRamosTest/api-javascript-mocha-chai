@@ -1,29 +1,44 @@
-🚀 API Automation Project - ServeRest
-Este projeto contém a suíte de testes automatizados para a API do ServeRest. O objetivo é garantir a integridade das funcionalidades da API através de testes de contrato e testes de comportamento, utilizando uma infraestrutura de CI robusta com integração de relatórios via Allure.
+# API Automation Project 🚀
 
-📋 Funcionalidades
-Testes Automatizados: Cobertura de cenários de API usando Mocha e Chai.
+Uma suíte de testes automatizados robusta desenvolvida para garantir a qualidade e a integridade da API do **ServeRest**. O projeto utiliza uma abordagem de testes focada em contratos e comportamento, integrada a um ecossistema de CI/CD para validação contínua e feedback rápido.
 
-CI/CD Pipeline: Execução automática no GitHub Actions com start-server-and-test.
+---
 
-Relatórios Inteligentes: Geração de relatórios visuais com Allure Report.
+## 🛠 Tecnologias Utilizadas
 
-Deploy Automatizado: Publicação dos relatórios no GitHub Pages.
+*   **Node.js & JavaScript** (Stack de desenvolvimento)
+*   **Mocha & Chai** (Framework de testes e biblioteca de asserção)
+*   **Chai-json-schema** (Validação rigorosa de contratos de API)
+*   **Allure Framework** (Relatórios visuais detalhados)
+*   **GitHub Actions** (Automação de CI com `start-server-and-test`)
+*   **Docker & Docker Compose** (Orquestração de ambiente de teste)
 
-Logs Otimizados: Estrutura de logs personalizada facilitando a leitura no console do CI.
+---
 
-🛠 Tecnologias
-Linguagem: JavaScript (Node.js)
+## 📋 Funcionalidades
 
-Framework de Testes: Mocha
+*   **Testes Automatizados:** Cobertura de cenários de API usando Mocha e Chai.
+*   **Testes de Contrato:** Validação de Schema (JSON) para garantir que a API respeite o contrato de dados.
+*   **Testes de Comportamento:** Validação de fluxos E2E e regras de negócio.
+*   **Relatórios Inteligentes:** Geração de dashboards interativos com Allure Report.
+*   **CI/CD Pipeline:** Execução automática e eficiente no GitHub Actions.
+*   **Logs Otimizados:** Estrutura de logs personalizada que facilita a leitura no console do CI.
 
-Biblioteca de Asserção: Chai
+---
 
-Orquestração: ServeRest
+## 📁 Estrutura do Projeto
 
-Relatórios: Allure Framework
-
-CI: GitHub Actions
+```text
+├── .github/workflows/    # Configurações do CI (GitHub Actions)
+├── allure-results/       # Resultados brutos dos testes
+├── config/               # Configurações de ambiente (URLs, tokens)
+├── factories/            # Geradores de massa de dados (faker)
+├── services/             # Abstração das chamadas de API (Requests)
+├── test/                 # Suíte de testes (especificações e contratos)
+│   └── schemas/          # Schemas para validação de contrato (JSON)
+├── utils/                # Hooks globais e utilitários
+├── package.json          # Dependências e scripts
+└── reporter-config.json  # Configuração dos reporters
 
 🚀 Como rodar o projeto
 Pré-requisitos
@@ -47,28 +62,3 @@ Para abrir o relatório após a execução:
 
 Bash
 npx allure open allure-report
-📁 Estrutura do Projeto
-Plaintext
-├── .github/workflows/    # Configurações do CI (GitHub Actions)
-├── allure-results/       # Resultados brutos dos testes
-├── config/               # Configurações de ambiente (URLs, tokens base)
-├── factories/            # Geradores de massa de dados (faker)
-├── services/             # Abstração das chamadas de API (Requests)
-├── test/                 # Suíte de testes (especificações e contratos)
-│   └── schemas/          # Schemas para validação de contrato (JSON)
-├── utils/                # Hooks globais e utilitários de configuração
-├── package.json          # Dependências e scripts de execução
-└── reporter-config.json  # Configuração dos reporters (spec + allure)
-⚙️ Configurações Principais
-Reporter: Utilizamos mocha-multi-reporters para ter visibilidade em tempo real no console (spec) e geração de dados para o Allure.
-
-Logs: O arquivo utils/mocha-setup.js garante que o console do CI exiba o nome de cada arquivo sendo executado, facilitando a identificação de falhas em larga escala.
-
-CI Strategy: O pipeline utiliza start-server-and-test para garantir que o servidor esteja pronto antes dos testes começarem, e limpa o ambiente após a execução.
-
-📝 Boas Práticas Adotadas
-Fail-Safe CI: O pipeline utiliza || true para garantir que o relatório Allure seja gerado mesmo se algum teste falhar (evitando que o CI pare abruptamente).
-
-Organização: Testes são isolados por funcionalidades (ex: login, usuários, produtos).
-
-Ambiente: O CI é configurado para ser efêmero (limpo a cada execução), garantindo que não existam resíduos de testes anteriores no banco de dados.
