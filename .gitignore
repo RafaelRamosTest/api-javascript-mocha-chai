@@ -1,0 +1,19 @@
+# Dependências
+node_modules/
+
+# Relatórios e Artefatos de Teste
+allure-results/
+allure-report/
+allure-history/
+mochawesome-report/
+test-results/
+
+# Arquivos de sistema e editores
+.DS_Store
+.vscode/
+.idea/
+*.log
+npm-debug.log*
+
+# Variáveis de ambiente (Segurança!)
+.env

@@ -1,0 +1,44 @@
+name: API Automation Test Pipeline
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  api-tests:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Necessário para a action publicar no GitHub Pages
+    steps:
+      - name: Checkout do Código
+        uses: actions/checkout@v3
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v3
+        with: 
+          node-version: 18
+
+      - name: Instalar Dependências
+        run: npm ci
+
+      - name: Executar Testes
+        run: npm run test:allure
+        continue-on-error: true # Permite gerar o relatório mesmo se houver falhas nos testes
+
+      - name: Gerar Relatório Allure
+        uses: simple-elf/allure-report-action@master
+        if: always()
+        with:
+          allure_results: allure-results
+          gh_pages: gh-pages
+          allure_report: allure-report
+          allure_history: allure-history
+
+      - name: Deploy para GitHub Pages
+        if: always()
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: allure-history
