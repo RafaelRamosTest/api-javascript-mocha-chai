@@ -6,7 +6,7 @@
   "scripts": {
     "test": "mocha test/**/*.spec.js --timeout 10000 --exit",
     "test:report": "mocha test/**/*.spec.js --reporter mochawesome --reporter-options reportDir=mochawesome-report,reportFilename=index,html=true,json=true --timeout 10000 --exit",
-    "test:allure": "mocha --reporter node_modules/mocha-allure-reporter",
+    "test:allure": "mocha --reporter allure-mocha",
     "allure:generate": "npx allure generate allure-results --clean -o allure-report"
   },
   "keywords": [
@@ -20,6 +20,7 @@
   "author": "QA Engineer",
   "license": "MIT",
   "devDependencies": {
+    "allure-mocha": "^3.10.2",
     "chai": "^4.3.7",
     "mocha": "^10.2.0",
     "mochawesome": "^7.1.3",
