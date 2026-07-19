@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentação Técnica - API ServeRest</title>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --bg-color: #f8fafc;
+            --text-color: #1e293b;
+            --code-bg: #1e1e1e;
+            --code-text: #d4d4d4;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 { color: var(--primary-color); border-bottom: 3px solid var(--primary-color); padding-bottom: 0.5rem; }
+        h2 { margin-top: 2rem; color: #334155; }
+        
+        pre {
+            background-color: var(--code-bg);
+            color: var(--code-text);
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Fira Code', 'Courier New', Courier, monospace;
+        }
+
+        code { background: #e2e8f0; padding: 2px 6px; border-radius: 4px; font-weight: bold; }
+
+        .tag {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>API Automation Project 🚀</h1>
+    <p>Documentação técnica da suíte de testes automatizados para a API <strong>ServeRest</strong>.</p>
+
+    <h2>🛠 Stack Tecnológica</h2>
+    <p>
+        <span class="tag">Node.js</span>
+        <span class="tag">Mocha</span>
+        <span class="tag">Chai</span>
+        <span class="tag">Allure</span>
+        <span class="tag">Supertest</span>
+        <span class="tag">Faker</span>
+    </p>
+
+    <h2>📋 Visão Geral</h2>
+    <p>Este projeto implementa uma estratégia de testes focada em <strong>qualidade e contratos</strong>. Utilizamos validação por Schema para garantir que, caso a API sofra alterações estruturais, os testes detectem a falha imediatamente.</p>
+
+    <h2>⚙️ Estratégia e Engenharia</h2>
+    <ul>
+        <li><strong>CI/CD (Pipeline):</strong> O projeto possui um workflow no GitHub Actions que executa os testes a cada <em>push</em> na branch <code>main</code>, garantindo integração contínua e relatórios automatizados via GitHub Pages.</li>
+        <li><strong>Tratamento de Massa de Dados (Data Driven):</strong> Utilizamos a biblioteca <code>Faker</code> para a geração de massa dinâmica, garantindo a unicidade dos dados e evitando conflitos em ambientes compartilhados.</li>
+        <li><strong>Boas Práticas:</strong> Arquitetura baseada em <code>Service Layer</code> para abstração de chamadas de API, facilitando a manutenção e reduzindo a duplicação de código.</li>
+        <li><strong>Evidências (Allure Report):</strong> A suíte gera relatórios visuais detalhados via Allure, permitindo uma análise clara de falhas e tendências para stakeholders e times de produto.</li>
+    </ul>
+
+    <h2>🚀 Como Rodar</h2>
+    <pre>
+# 1. Clone o repositório
+git clone [seu-link-aqui]
+
+# 2. Instale as dependências
+npm install
+
+# 3. Execute os testes
+npm run ci:test</pre>
+
+    <h2>🧪 Casos de Testes</h2>
+    <ul>
+        <li><strong>Fluxo POST:</strong> Cadastro de usuários com dados dinâmicos.</li>
+        <li><strong>Fluxo GET:</strong> Validação de contrato via <code>JSON Schema</code>.</li>
+        <li><strong>Fluxo PUT/DELETE:</strong> Manipulação de recursos e validação de regras de negócio.</li>
+    </ul>
+
+    <h2>📈 Roadmap e Evolução</h2>
+    <ul>
+        <li><strong>Performance:</strong> Implementar testes de carga usando K6.</li>
+        <li><strong>Notificações:</strong> Integração com Slack/Discord para reportar falhas no pipeline.</li>
+        <li><strong>Segurança:</strong> Adicionar scan de vulnerabilidades básicas nas chamadas de API (OWASP ZAP).</li>
+    </ul>
+</div>
+
+</body>
+</html>

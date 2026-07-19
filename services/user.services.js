@@ -12,8 +12,8 @@ const userService = {
     return response;
   },
 
-  createUser: async (user, token) => {
-    const response = await request(baseUrl).post("/usuarios").set(getAuthHeader(token)).send(user);
+  createUser: async (userBody, token) => {
+    const response = await request(baseUrl).post("/usuarios").set(getAuthHeader(token)).send(userBody);
     //console.log('Response from createUser:', response.body);
     return response;
   },
