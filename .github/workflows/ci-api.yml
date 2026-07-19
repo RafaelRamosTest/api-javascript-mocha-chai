@@ -23,16 +23,10 @@ jobs:
       - name: Instalar Dependências
         run: npm ci
 
-      - name: Iniciar ServeRest em background
-        # Usamos nohup e & para rodar o servidor em segundo plano e continuar o pipeline
-        run: nohup npx serverest start --port 3000 > serverest.log 2>&1 &
-
-      - name: Aguardar servidor subir
-        run: sleep 5 # Pequena pausa para garantir que o servidor iniciou
-
-      - name: Executar Testes
-        run: npm run test:allure
-        continue-on-error: true # Permite que o relatório seja gerado mesmo com falhas nos testes
+      # O comando abaixo substitui todos aqueles passos anteriores de start e wait
+      - name: Executar Testes com Monitoramento
+        run: npm run ci:test
+        continue-on-error: true 
 
       - name: Gerar Relatório Allure
         uses: simple-elf/allure-report-action@master

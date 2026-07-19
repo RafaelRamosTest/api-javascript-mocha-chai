@@ -7,7 +7,7 @@
     "test": "mocha test/**/*.spec.js --timeout 10000 --exit",
     "test:report": "mocha test/**/*.spec.js --reporter mochawesome --reporter-options reportDir=mochawesome-report,reportFilename=index,html=true,json=true --timeout 10000 --exit",
     "test:allure": "mocha \"test/**/*.spec.js\" --reporter allure-mocha --reporter-options resultsDir=allure-results",
-    "allure:generate": "npx allure generate allure-results --clean -o allure-report"
+    "ci:test": "start-server-and-test 'npx serverest start --port 3000' http://localhost:3000 'npm run test:allure'"
   },
   "keywords": [
     "mocha",
@@ -24,6 +24,7 @@
     "chai": "^4.3.7",
     "mocha": "^10.2.0",
     "mochawesome": "^7.1.3",
+    "start-server-and-test": "^3.0.11",
     "supertest": "^6.3.3"
   }
 }
