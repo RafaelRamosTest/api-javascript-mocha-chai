@@ -1,5 +1,5 @@
 🚀 API Automation Project - ServeRest
-Este projeto contém a suíte de testes automatizados para a API do ServeRest. O objetivo é garantir a integridade das funcionalidades da API através de testes de contrato e comportamento, utilizando uma infraestrutura de CI robusta com integração de relatórios via Allure.
+Este projeto contém a suíte de testes automatizados para a API do ServeRest. O objetivo é garantir a integridade das funcionalidades da API através de testes de contrato e testes de comportamento, utilizando uma infraestrutura de CI robusta com integração de relatórios via Allure.
 
 📋 Funcionalidades
 Testes Automatizados: Cobertura de cenários de API usando Mocha e Chai.
@@ -10,7 +10,7 @@ Relatórios Inteligentes: Geração de relatórios visuais com Allure Report.
 
 Deploy Automatizado: Publicação dos relatórios no GitHub Pages.
 
-Logs Otimizados: Estrutura de logs facilitando a leitura no console do CI.
+Logs Otimizados: Estrutura de logs personalizada facilitando a leitura no console do CI.
 
 🛠 Tecnologias
 Linguagem: JavaScript (Node.js)
@@ -32,14 +32,11 @@ Node.js (versão 20 ou superior)
 NPM ou Yarn
 
 Instalação
-Clone o repositório:
+Clone o repositório e instale as dependências:
 
 Bash
 git clone [seu-link-aqui]
 cd [seu-projeto]
-Instale as dependências:
-
-Bash
 npm install
 Executando os testes localmente
 Para rodar os testes e gerar o relatório Allure:
