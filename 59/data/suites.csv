@@ -1,0 +1,8 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","132","Cenário 1: Deve listar todos os usuários (Teste de Contrato)","Gerenciamento de Usuários - Endpoints /usuarios","2026-08-26","passed","2026-08-26","","GET /usuarios - Listagem de usuários","",""
+"","207","Cenário 1: Deve atualizar com sucesso","Gerenciamento de Usuários - Endpoints /usuarios","2026-08-26","passed","2026-08-26","","PUT /usuarios/{id} - Atualização","",""
+"","206","Cenário 1: Deve deletar com sucesso","Gerenciamento de Usuários - Endpoints /usuarios","2026-08-26","passed","2026-08-26","","DELETE /usuarios/{id} - Exclusão","",""
+"","212","Cenário 1: Deve retornar informações de um usuário existente","Gerenciamento de Usuários - Endpoints /usuarios","2026-08-26","passed","2026-08-26","","GET /usuarios/{id} - Detalhes específicos","",""
+"","89","Cenário 1: Deve criar um novo usuário com sucesso","Gerenciamento de Usuários - Endpoints /usuarios","2026-08-26","passed","2026-08-26","","POST /usuarios - Criação de novos usuários","",""
+"","161","Cenário 2: Deve retornar erro ao tentar cadastrar usuário com e-mail existente","Gerenciamento de Usuários - Endpoints /usuarios","2026-08-26","passed","2026-08-26","","POST /usuarios - Criação de novos usuários","",""
+"","217","Cenário 2: Não deve deletar usuário com carrinho cadastrado","Gerenciamento de Usuários - Endpoints /usuarios","2026-08-26","passed","2026-08-26","","DELETE /usuarios/{id} - Exclusão","",""
