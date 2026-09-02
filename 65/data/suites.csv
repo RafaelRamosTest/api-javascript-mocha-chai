@@ -1,8 +1,0 @@
-"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","295","Cenário 1: Deve retornar informações de um usuário existente","Gerenciamento de Usuários - Endpoints /usuarios","2026-09-01","passed","2026-09-01","","GET /usuarios/{id} - Detalhes específicos","",""
-"","105","Cenário 1: Deve criar um novo usuário com sucesso","Gerenciamento de Usuários - Endpoints /usuarios","2026-09-01","passed","2026-09-01","","POST /usuarios - Criação de novos usuários","",""
-"","186","Cenário 2: Deve retornar erro ao tentar cadastrar usuário com e-mail existente","Gerenciamento de Usuários - Endpoints /usuarios","2026-09-01","passed","2026-09-01","","POST /usuarios - Criação de novos usuários","",""
-"","295","Cenário 2: Não deve deletar usuário com carrinho cadastrado","Gerenciamento de Usuários - Endpoints /usuarios","2026-09-01","passed","2026-09-01","","DELETE /usuarios/{id} - Exclusão","",""
-"","173","Cenário 1: Deve listar todos os usuários (Teste de Contrato)","Gerenciamento de Usuários - Endpoints /usuarios","2026-09-01","passed","2026-09-01","","GET /usuarios - Listagem de usuários","",""
-"","245","Cenário 1: Deve deletar com sucesso","Gerenciamento de Usuários - Endpoints /usuarios","2026-09-01","passed","2026-09-01","","DELETE /usuarios/{id} - Exclusão","",""
-"","335","Cenário 1: Deve atualizar com sucesso","Gerenciamento de Usuários - Endpoints /usuarios","2026-09-01","passed","2026-09-01","","PUT /usuarios/{id} - Atualização","",""
